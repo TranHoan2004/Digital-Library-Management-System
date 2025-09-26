@@ -1,16 +1,44 @@
-# Compiled class file
+############################
+# Build output
+############################
+target/
+build/
+out/
+bin/
+
+############################
+# IDE
+############################
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+*.iml
+.idea/
+
+# VS Code
+.vscode/
+
+############################
+# OS
+############################
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+############################
+# Java
+############################
 *.class
-
-# Log file
 *.log
+hs_err_pid*
+replay_pid*
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+############################
+# Packaging / Archives
+############################
 *.jar
 *.war
 *.nar
@@ -19,6 +47,7 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+############################
+# Env & configs
+############################
+*.env

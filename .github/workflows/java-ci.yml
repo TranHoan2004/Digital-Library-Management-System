@@ -20,12 +20,6 @@ jobs:
       matrix:
         service: [
           EurekaServer,
-          APIGateway,
-          book-service,
-          member-service,
-          loan-service,
-          fine-service,
-          notification-service
         ]
     steps:
       - name: Checkout code

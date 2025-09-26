@@ -1,0 +1,57 @@
+# CI for Android application
+name: Java Microservice CI/CD
+
+on:
+  push:
+    branches: [
+      "main", "dev",
+      "feat/**", "refactor/**",
+      "style/**", "fix/**"
+    ]
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  spring-boot-build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [
+          EurekaServer,
+          APIGateway,
+          book-service,
+          member-service,
+          loan-service,
+          fine-service,
+          notification-service
+        ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: '21'
+          cache: maven
+
+      - name: Grant execute permission for mvnw
+        run: chmod +x mvnw
+        working-directory: src/${{matrix.service}}
+
+      - name: Build spring boot
+        run: ../../../mvnw clean package -DskipTests
+        working-directory: src/${{matrix.service}}
+
+      - name: Run Spring boot tests
+        run: ../../../mvnw test
+        working-directory: src/${{matrix.service}}
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{matrix.service}}-jar
+          path: src/${{matrix.service}}/target/*.jar

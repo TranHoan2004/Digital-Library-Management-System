@@ -37,11 +37,11 @@ jobs:
         working-directory: src/${{matrix.service}}
 
       - name: Build spring boot
-        run: ../../mvnw clean package -DskipTests
+        run: ./mvnw clean package -DskipTests
         working-directory: src/${{matrix.service}}
 
       - name: Run Spring boot tests
-        run: ../../mvnw test
+        run: ./mvnw test
         working-directory: src/${{matrix.service}}
 
       - name: Upload JAR

@@ -1,10 +1,10 @@
-package com.sampleproject
+package com.se1853_jv.bookservice
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class SampleProjectApplicationTests {
+class BookServiceApplicationTests {
 
     @Test
     fun contextLoads() {

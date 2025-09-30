@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: book-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/bookdb
+      username: sa
+      password: 123
+      database: book-service
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:9000/eureka/, http://localhost:9001/eureka/
+server:
+  port: 0
+  servlet:
+    context-path: /v1/api
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

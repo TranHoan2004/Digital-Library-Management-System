@@ -1,10 +1,2 @@
-*.java linguist-language=Java
 *.kt linguist-language=Kotlin
-*.kts linguist-language=Kotlin
-
-*.js linguist-language=JavaScript
-*.jsx linguist-language=JavaScript
-*.ts linguist-language=TypeScript
-*.tsx linguist-language=TypeScript
-
-frontend/* linguist-vendored=false
+*.java linguist-language=Java

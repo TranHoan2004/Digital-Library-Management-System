@@ -2,27 +2,29 @@ package com.se1853_jv.apigateway
 
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
 class ApiGatewayConfig {
+//    @Bean
     fun routeLocator(builder: RouteLocatorBuilder): RouteLocator {
         return builder.routes()
-            .route("account_route") { r ->
-                r.path("/v1/api/accounts/**")
+            .route("book-service") { r ->
+                r.path("/v1/api/books/**")
                     .filters { f ->
-                        f.addRequestHeader("X-Account-Service", "AccountServiceHeader")
-                        f.rewritePath("/accounts/(?<segment>.*)", "/$\\{segment}")
+                        f.addRequestHeader("X-Book-Service", "BookServiceHeader")
+                        f.rewritePath("/v1/api/books/(?<segment>.*)", "/$\\{segment}")
                     }
                     .uri("http://localhost:8081")
             }
-            .route("notification_route") { r ->
-                r.path("/v1/api/notifications/**")
+            .route("book-service-docs") { r ->
+                r.path("/v1/api/v3/api-docs")
                     .filters { f ->
-                        f.addRequestHeader("X-Notification-Service", "NotificationServiceHeader")
-                        f.rewritePath("/notifications/(?<segment>.*)", "/$\\{segment}")
+                        f.addRequestHeader("X-Book-Service", "BookServiceHeader")
+                        f.rewritePath("/v1/api/(?<segment>.*)", "/$\\{segment}")
                     }
-                    .uri("http://localhost:8082")
+                    .uri("http://localhost:8081")
             }
             .build()
     }

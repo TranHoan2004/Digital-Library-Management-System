@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: APIGateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+            - id: account-service
+              uri: lb://account-service
+              predicates:
+                - Path=/v1/api/accounts/**
+              filters:
+                - RewritePath=/accounts/(?<segment>.*), /$\{segment}
+            - id: notification-service
+              uri: lb://notification-service
+              predicates:
+                - Path=/v1/api/notifications/**
+              filters:
+                - RewritePath=/notifications/(?<segment>.*), /$\{segment}
+    compatibility-verifier:
+      enabled: true
+server:
+  port: 8080
+springdoc:
+  api-docs:
+      enabled: true
+      path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+        - name: account-service
+          url: /account-service/v3/api-docs
+        - name: notification-service
+          url: /notification-service/v3/api-docs

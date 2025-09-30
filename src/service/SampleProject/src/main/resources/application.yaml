@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: SampleProject
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9000/eureka/, http://localhost:9001/eureka/
+server:
+  port: 8081
+  servlet:
+    context-path: /v1/api
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

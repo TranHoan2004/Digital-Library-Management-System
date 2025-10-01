@@ -1,4 +1,4 @@
-package com.se1853_jv.bookservice.dto.response
+package com.se1853_jv.reviewservice.dto.response
 
 import java.time.LocalDateTime
 

@@ -1,0 +1,35 @@
+###  Get review
+GET http://localhost:8080/v1/api/reviews?id=7c1cf4fd-3b9c-4d80-938a-d3dd1d1ca2df&user=0306204002474
+
+###
+
+###  Create review
+POST http://localhost:8080/v1/api/reviews
+Content-Type: application/json
+
+{
+  "userId": "0306204002474",
+  "bookId": "f7640643-93bf-4bda-9d3f-5a4d36b02e5e",
+  "content": "Hehe Shhhh"
+}
+###
+
+### Update review
+PUT http://localhost:8080/v1/api/reviews
+Content-Type: application/json
+
+{
+  "userId": "0306204002474",
+  "id": "7c1cf4fd-3b9c-4d80-938a-d3dd1d1ca2df",
+  "content": "Great book!"
+}
+###
+
+### Delete review
+DELETE http://localhost:8080/v1/api/reviews
+Content-Type: application/json
+
+{
+  "userId": "0306204002474",
+  "id": "7c1cf4fd-3b9c-4d80-938a-d3dd1d1ca2df"
+}

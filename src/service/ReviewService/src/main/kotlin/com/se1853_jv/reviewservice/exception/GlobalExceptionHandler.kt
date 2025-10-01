@@ -1,6 +1,6 @@
-package com.se1853_jv.bookservice.exception
+package com.se1853_jv.reviewservice.exception
 
-import com.se1853_jv.bookservice.dto.response.WrapperApiResponse
+import com.se1853_jv.reviewservice.dto.response.WrapperApiResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException

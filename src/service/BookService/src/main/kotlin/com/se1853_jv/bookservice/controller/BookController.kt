@@ -12,7 +12,6 @@ import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
 import mu.KotlinLogging
-import org.springframework.data.domain.Page
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -50,9 +49,15 @@ class BookController(private val service: BookService) {
             ApiResponse(responseCode = "400", description = "Invalid request data")
         ]
     )
-    fun createBook(@RequestBody request: CreateBookRequest) {
+    fun createBook(@RequestBody request: CreateBookRequest): ResponseEntity<Any> {
         logger.info { "POST /books - Create book with ISBN=${request.isbn}, title=${request.title}" }
-        service.createNewBook(request)
+        return ResponseEntity.ok(
+            WrapperApiResponse(
+                HttpStatus.OK.value(),
+                "Find book with id successfully",
+                service.createNewBook(request)
+            )
+        )
     }
 
     @GetMapping("/{id}")
@@ -70,9 +75,15 @@ class BookController(private val service: BookService) {
             ApiResponse(responseCode = "404", description = "Book not found")
         ]
     )
-    fun getBookById(@PathVariable id: String): BookResponse? {
+    fun getBookById(@PathVariable id: String): ResponseEntity<Any> {
         logger.info { "GET /books/$id - Fetch book by ID" }
-        return service.getBookById(id)
+        return ResponseEntity.ok(
+            WrapperApiResponse(
+                HttpStatus.OK.value(),
+                "Find book with id successfully",
+                service.getBookById(id)
+            )
+        )
     }
 
     @GetMapping("/author/{author}")

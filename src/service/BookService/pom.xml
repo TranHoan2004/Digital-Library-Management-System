@@ -9,17 +9,10 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com</groupId>
-<<<<<<<< HEAD:src/service/BookService/pom.xml
     <artifactId>BookService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>BookService</name>
     <description>BookService</description>
-========
-    <artifactId>ReviewService</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>ReviewService</name>
-    <description>ReviewService</description>
->>>>>>>> 375e2e98b293b61d98a0e28f2636731a3d3dd943:src/service/ReviewService/pom.xml
     <url/>
     <licenses>
         <license/>
@@ -57,10 +50,10 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--        </dependency>-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.cloud</groupId>-->
 <!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->

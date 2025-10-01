@@ -6,7 +6,7 @@ import com.se1853_jv.bookservice.dto.response.BookResponse
 import org.springframework.data.domain.Page
 
 interface BookService {
-    fun createNewBook(request: CreateBookRequest)
+    fun createNewBook(request: CreateBookRequest): BookResponse
     fun getBookById(id: String): BookResponse?
     fun getBooksByAuthor(author: String, pageIndex: Int, pageSize: Int?): Page<BookResponse>
     fun getBookByCode(code: String): BookResponse?

@@ -21,7 +21,7 @@ class BookServiceImpl(
     private val repo: BookRepository
 ) : BookService {
 
-    override fun createNewBook(request: CreateBookRequest) {
+    override fun createNewBook(request: CreateBookRequest): BookResponse {
         logger.info { "Creating new Book" }
         if (isBookCodeExists(request.bookCode)) {
             throw IllegalArgumentException("Book code already exists")
@@ -38,8 +38,8 @@ class BookServiceImpl(
             createdDate = LocalDateTime.now(),
             coverImage = request.coverImage,
         )
-        repo.save(book)
         logger.info { "Book created with id: ${book.id}" }
+        return convertToResponse(repo.save(book))
     }
 
     override fun getBookById(id: String): BookResponse? {

@@ -21,9 +21,7 @@ private val logger = KotlinLogging.logger {}
 
 @RestController
 @RequestMapping("/bookshelves")
-class BookshelfController(
-    private val service: BookShelfService
-) {
+class BookshelfController(private val service: BookShelfService) {
 
     @PostMapping
     fun createBookShelf(@RequestBody shelf: CreateShelfRequest): ResponseEntity<WrapperApiResponse> {
@@ -56,7 +54,7 @@ class BookshelfController(
         return ResponseEntity.ok(
             WrapperApiResponse(
                 HttpStatus.OK.value(),
-                "Get bookshelf with id $id successfully",
+                "Get bookshelf successfully",
                 service.getShelfById(id)
             )
         )
@@ -85,7 +83,7 @@ class BookshelfController(
         return ResponseEntity.ok(
             WrapperApiResponse(
                 HttpStatus.OK.value(),
-                "Get books in bookshelf with id $id successfully",
+                "Get books in bookshelf successfully",
                 service.getBooksInShelf(id, pageIndex, pageSize)
             )
         )
@@ -126,7 +124,7 @@ class BookshelfController(
         return ResponseEntity.ok(
             WrapperApiResponse(
                 HttpStatus.OK.value(),
-                "Delete bookshelf successfully with id $id",
+                "Delete bookshelf successfully",
                 null
             )
         )
@@ -139,7 +137,7 @@ class BookshelfController(
         return ResponseEntity.ok(
             WrapperApiResponse(
                 HttpStatus.OK.value(),
-                "Remove book in the bookshelf with id $id successfully",
+                "Remove book in the bookshelf successfully",
                 null
             )
         )

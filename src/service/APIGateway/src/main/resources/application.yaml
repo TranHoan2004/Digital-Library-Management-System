@@ -10,18 +10,21 @@ spring:
               enabled: true
               lower-case-service-id: true
           routes:
-            - id: account-service
-              uri: lb://account-service
-              predicates:
-                - Path=/v1/api/accounts/**
-              filters:
-                - RewritePath=/accounts/(?<segment>.*), /$\{segment}
-            - id: notification-service
-              uri: lb://notification-service
-              predicates:
-                - Path=/v1/api/notifications/**
-              filters:
-                - RewritePath=/notifications/(?<segment>.*), /$\{segment}
+            # example:
+#            - id: book-service
+#              uri: lb://book-service
+#              predicates:
+#                - Path=${prefix}/books/**
+#              filters:
+#                - RewritePath=${prefix}/books/(?<segment>.*), /${segment}
+#
+#            # Swagger Docs of Book Service
+#            - id: book-service-docs
+#              uri: lb://book-service
+#              predicates:
+#                - Path=${prefix}/v3/api-docs
+#              filters:
+#                - RewritePath=${prefix}/(?<segment>.*), /${segment}
     compatibility-verifier:
       enabled: true
 server:
@@ -33,7 +36,7 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-        - name: account-service
-          url: /account-service/v3/api-docs
-        - name: notification-service
-          url: /notification-service/v3/api-docs
+# example:
+#      - name: book-service
+#        url: /v3/api-docs
+#prefix: /v1/api

@@ -10,21 +10,20 @@ spring:
               enabled: true
               lower-case-service-id: true
           routes:
-            # example:
-#            - id: book-service
-#              uri: lb://book-service
-#              predicates:
-#                - Path=${prefix}/books/**
-#              filters:
-#                - RewritePath=${prefix}/books/(?<segment>.*), /${segment}
-#
-#            # Swagger Docs of Book Service
-#            - id: book-service-docs
-#              uri: lb://book-service
-#              predicates:
-#                - Path=${prefix}/v3/api-docs
-#              filters:
-#                - RewritePath=${prefix}/(?<segment>.*), /${segment}
+            - id: review-service
+              uri: lb://review-service
+              predicates:
+                - Path=${prefix}/reviews/**
+              filters:
+                - RewritePath=${prefix}/reviews/(?<segment>.*), /${segment}
+
+            # Swagger Docs of Book Service
+            - id: review-service-docs
+              uri: lb://review-service
+              predicates:
+                - Path=${prefix}/v3/api-docs
+              filters:
+                - RewritePath=${prefix}/(?<segment>.*), /${segment}
     compatibility-verifier:
       enabled: true
 server:
@@ -36,7 +35,6 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-# example:
-#      - name: book-service
-#        url: /v3/api-docs
-#prefix: /v1/api
+      - name: review-service
+        url: /v3/api-docs
+prefix: /v1/api

@@ -1,10 +1,10 @@
-package com.sampleproject
+package com.se1853_jv.reviewservice
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class SampleProjectApplicationTests {
+class ReviewServiceApplicationTests {
 
     @Test
     fun contextLoads() {

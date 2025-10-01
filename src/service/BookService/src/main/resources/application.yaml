@@ -1,12 +1,8 @@
 spring:
   application:
     name: book-service
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/bookdb
-      username: sa
-      password: 123
-      database: book-service
+  profiles:
+    active: dev
 #eureka:
 #  client:
 #    register-with-eureka: true

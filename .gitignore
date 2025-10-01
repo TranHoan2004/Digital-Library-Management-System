@@ -51,4 +51,4 @@ replay_pid*
 # Env & configs
 ############################
 *.env
-**/src/main/resources/application-*.yaml
+**/src/main/resources/application-dev.yaml
